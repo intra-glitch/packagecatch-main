@@ -1,9 +1,8 @@
 const express = require('express');
-const { createClient } = require('@supabase/supabase-js');
+const supabase = require('../utils/supabase');
 const { verifyToken } = require('./auth');
 
 const router = express.Router();
-const supabase = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_SERVICE_KEY);
 
 // Middleware to check if user is admin
 const verifyAdmin = async (req, res, next) => {

@@ -1,10 +1,9 @@
 const express = require('express');
 const bcrypt = require('bcryptjs');
 const { verifyToken } = require('./auth');
-const { createClient } = require('@supabase/supabase-js');
+const supabase = require('../utils/supabase');
 
 const router = express.Router();
-const supabase = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_ANON_KEY);
 
 // Get profile
 router.get('/', verifyToken, async (req, res) => {

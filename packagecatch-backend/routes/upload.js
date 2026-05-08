@@ -2,10 +2,9 @@ const express = require('express');
 const multer = require('multer');
 const path = require('path');
 const { verifyToken } = require('./auth');
-const { createClient } = require('@supabase/supabase-js');
+const supabase = require('../utils/supabase');
 
 const router = express.Router();
-const supabase = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_ANON_KEY);
 
 // Configure multer for file upload
 const storage = multer.memoryStorage();
